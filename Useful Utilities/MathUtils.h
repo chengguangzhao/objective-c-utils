@@ -10,5 +10,5 @@
 #import <math.h>
 
 @interface MathUtils : NSObject
-+(BOOL) isPrime: (long long) num;
++(BOOL) isPrime: (unsigned long long) num;
 @end

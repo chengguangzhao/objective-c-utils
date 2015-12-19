@@ -7,20 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Primes.h"
 #import "MathUtils.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         NSDate * start = [NSDate date];
-        int count = 0;
-        long long upper = 10000000;
-        for (int i=2; i < upper; ++i) {
-            if ([MathUtils isPrime:i])
-                ++count;
+        long long total = 0;
+        unsigned long long upper = 5000000;
+        for (unsigned long long i = 2; i <= upper; ++i) {
+//            if ([MathUtils isPrime:i]) ++total;
+            if ([Primes isPrime:i]) ++total;
+//            if ([Primes isPrimeMixed:i]) ++total;
                 //NSLog(@"%d is prime", i);
         }
         NSTimeInterval timeInterval = [start timeIntervalSinceNow];
-        NSLog(@"There are %d primes under %lld", count, upper);
+        NSLog(@"There are %lld primes under %lld", total, upper);
         NSLog(@"%f milliseconds has elapsed.", -timeInterval*1000);
     }
     return 0;
