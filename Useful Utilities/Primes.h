@@ -13,5 +13,7 @@
 +(BOOL) isPrimeStright:(unsigned long long)num;
 +(BOOL) isPrimeMixed:(unsigned long long)num;
 +(BOOL) isPrime: (unsigned long long) num;
++(BOOL) isPrimeString: (NSString *) str;
++(BOOL) isTruncablePrimes: (NSString *) str;
 
 @end

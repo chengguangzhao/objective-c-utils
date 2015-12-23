@@ -7,22 +7,37 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Primes.h"
-#import "MathUtils.h"
+//#import "Primes.h"
+//#import "MathUtils.h"
+#import "PokerHand.h"
+
+
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         NSDate * start = [NSDate date];
-        long long total = 0;
-        unsigned long long upper = 5000000;
-        for (unsigned long long i = 2; i <= upper; ++i) {
-//            if ([MathUtils isPrime:i]) ++total;
-            if ([Primes isPrime:i]) ++total;
-//            if ([Primes isPrimeMixed:i]) ++total;
-                //NSLog(@"%d is prime", i);
-        }
+        
+        //Reading file
+        NSString * filePath;
+        NSFileManager *filemgr;
+        NSData *databuffer;
+        filemgr = [NSFileManager defaultManager];
+        filePath = @"/Users/chengguangzhao/Documents/Dev/Useful Utilities/Useful Utilities/poker.txt";
+        if ([filemgr isReadableFileAtPath: filePath ] == YES)
+            NSLog (@"File exists and is readable");
+        else
+            NSLog (@"File not found or is not readable");
+        databuffer = [NSData dataWithContentsOfFile:filePath];
+        NSString *string = [NSString stringWithUTF8String:[databuffer bytes]];
+        NSArray *hands = [string componentsSeparatedByString:@"\n"];
+
+        PokerHand * h = [[PokerHand alloc] initWithString:[hands[0] substringToIndex:14]];
+        NSLog(@"%@", h );
+
+        
+                     
         NSTimeInterval timeInterval = [start timeIntervalSinceNow];
-        NSLog(@"There are %lld primes under %lld", total, upper);
+        //NSLog(@"%lu", (unsigned long)allLinedStrings.count);
         NSLog(@"%f milliseconds has elapsed.", -timeInterval*1000);
     }
     return 0;

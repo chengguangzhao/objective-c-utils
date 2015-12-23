@@ -77,4 +77,17 @@ static unsigned int switchOver = 550000; //below this traditional isPrime is fas
     return ![self checkLargePrimeFactors:num];
 }
 
++(BOOL)isPrimeString:(NSString *)str {
+    return [self isPrime:[str integerValue]];
+}
+
++(BOOL) isTruncablePrimes: (NSString *) str {
+    if ([str length] <2) return NO;
+    for (int i = 0; i < [str length]; ++i) {
+        if(![Primes isPrimeString:[str substringFromIndex:i]]) return NO;
+        if(i>0 && ![Primes isPrimeString:[str substringToIndex:i]]) return NO;
+    }
+    return YES;
+}
+
 @end
