@@ -8,15 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum _suit_t {heart, spade, diamond, club} suit_t;
-
-typedef struct _card_t {
-    int n;
-    suit_t suit;
-} card_t;
-
 @interface PokerHand : NSObject
 
 -(instancetype)initWithString: (NSString *) str;
+-(unsigned long long) getScore;
+-(NSString *) getHandName;
 
 @end

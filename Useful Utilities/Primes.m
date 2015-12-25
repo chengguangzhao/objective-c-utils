@@ -1,5 +1,5 @@
 //
-//  SmallPrimes.m
+//  Primes.m
 //  Useful Utilities
 //
 //  Created by Chengguang Zhao on 12/19/15.
