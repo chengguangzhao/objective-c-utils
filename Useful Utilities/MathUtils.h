@@ -10,5 +10,11 @@
 #import <math.h>
 
 @interface MathUtils : NSObject
-+(BOOL) isPrime: (long long) num;
++(BOOL) isPrime: (unsigned long long) num;
++(BOOL) isAbundant: (NSUInteger) num;
++(BOOL) isPandigitalInteger: (NSUInteger) num;
++(BOOL) isPandigitalString: (NSString*) str;
++(NSMutableArray *) properDivisors: (NSUInteger) num;
+
+
 @end
